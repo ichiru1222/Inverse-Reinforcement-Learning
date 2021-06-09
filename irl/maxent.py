@@ -7,6 +7,8 @@ matthew.alger@anu.edu.au
 
 from itertools import product
 
+import tqdm
+
 import numpy as np
 import numpy.random as rn
 
@@ -43,7 +45,7 @@ def irl(feature_matrix, n_actions, discount, transition_probability,
                                                      trajectories)
 
     # Gradient descent on alpha.
-    for i in range(epochs):
+    for i in tqdm.tqdm(range(epochs)):
         # print("i: {}".format(i))
         r = feature_matrix.dot(alpha)
         expected_svf = find_expected_svf(n_states, r, n_actions, discount,
