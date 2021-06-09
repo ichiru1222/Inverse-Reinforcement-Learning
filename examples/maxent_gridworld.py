@@ -7,6 +7,8 @@ matthew.alger@anu.edu.au
 
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
+sys.path.append("../")
 
 import irl.maxent as maxent
 import irl.mdp.gridworld as gridworld
@@ -25,7 +27,7 @@ def main(grid_size, discount, n_trajectories, epochs, learning_rate):
     """
 
     wind = 0.3
-    trajectory_length = 3*grid_size
+    trajectory_length = 3 * grid_size
 
     gw = gridworld.Gridworld(grid_size, wind, discount)
     trajectories = gw.generate_trajectories(n_trajectories,
