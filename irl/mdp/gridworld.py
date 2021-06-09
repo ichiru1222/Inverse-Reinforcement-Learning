@@ -289,3 +289,23 @@ class Gridworld(object):
             trajectories.append(trajectory)
 
         return np.array(trajectories)
+
+
+class Gridworld_feature(Gridworld):
+    def __init__(self, grid_size, wind, discount):
+        super().__init__(grid_size, wind, discount)
+
+    def feature_vector(self, i, feature_map="one-hot", manu_feature = None):
+        """
+        manu_feature : [[f_s1], [f_s2], ... , [f_si]]
+        """
+
+        if feature_map == "one-hot":
+            f = np.zeros(self.n_states)
+            f[i] = 1
+            return f
+        
+        if feature_map == "manu_feature":
+            return manu_feature[i]
+
+        
